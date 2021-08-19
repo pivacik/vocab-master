@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 //Components
-
+import { HeaderContainer } from "../containers/header";
 // import { shortDefURL } from "../api";
 
 const Home = () => {
