@@ -10,8 +10,13 @@ export const Container = styled.div`
   opacity: 1;
   visibility: visible;
   background: url("/images/misc/header.svg") 50% 50% no-repeat;
+
   background-size: cover, cover;
   transition: 0.5s all;
+
+  @media (max-width: 760px) {
+    font-size: 80%;
+  }
 `;
 
 export const Text = styled.h1`
@@ -19,6 +24,14 @@ export const Text = styled.h1`
   font-size: 2em;
   color: #fff;
   margin: 0 0 15px 0;
+
+  @media (max-width: 848px) {
+    font-size: 1.8em;
+  }
+
+  @media (max-width: 345px) {
+    font-size: 1.5em;
+  }
 `;
 
 export const Frame = styled.div`
@@ -46,24 +59,33 @@ export const SearchField = styled.div`
     left: 36px;
     top: 50%;
     margin-top: -0.6em;
-    opacity: 1;
+    opacity: ${({ searchTerm }) => (searchTerm ? 0 : 1)};
     transition: opacity 0.3s;
     pointer-events: none;
   }
 
   &:after {
     content: "";
-    background-image: url("/images/icons/dict-on.png");
-    background-size: 20px 20px;
+    background-image: url("/images/icons/dict-off.png");
+    background-size: 16px 16px;
+    filter: invert(50%);
     width: 16px;
+    height: 16px;
     z-index: 1;
-    color: #909090;
+    color: #dfd6d6;
     position: absolute;
     left: 14px;
     top: 50%;
     margin-top: -0.55em;
     font-family: "SSStandard";
     font-size: 15px;
+  }
+
+  @media (max-width: 640px) {
+    width: 90%;
+  }
+  @media (max-width: 365px) {
+    width: 95%;
   }
 `;
 
@@ -72,7 +94,7 @@ export const Autocomplete = styled.div``;
 export const Helpers = styled.div`
   display: flex;
   justify-content: center;
-  width: 500px;
+  width: 100%;
   margin: 12px auto 0;
 `;
 export const RandomIcon = styled.div`
