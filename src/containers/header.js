@@ -1,11 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { Header } from "../components";
 import logo from "../logo.png";
 export function HeaderContainer() {
-  const [category, setCategory] = useState("learn");
+  const [category, setCategory] = useState("dict");
+  const [opacity, setOpacity] = useState(0);
+
+  const resizeHeaderOnScroll = () => {
+    const distanceY = window.pageYOffset || document.documentElement.scrollTop;
+    const shrinkOn = 1;
+
+    if (distanceY > shrinkOn) {
+      setOpacity(1);
+    } else {
+      setOpacity(0);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", resizeHeaderOnScroll);
+  }, []);
 
   return (
-    <Header>
+    <Header opacity={opacity}>
       <Header.Frame>
         <Header.Main>
           <Header.Logo src={logo} />

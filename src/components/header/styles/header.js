@@ -24,8 +24,8 @@ export const Container = styled.div`
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
-  /* background-color: rgba(39, 72, 102, 0.95); */
-  background-color: transparent;
+  /* background-color: #274866f2; */
+  background-color: ${({ opacity }) => (opacity ? "#274866f2" : "transparent")};
   user-select: none;
 `;
 
