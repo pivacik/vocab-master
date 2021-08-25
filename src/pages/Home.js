@@ -3,12 +3,14 @@ import Search from "../components/search";
 
 //Components
 import { HeaderContainer } from "../containers/header";
+import { DefinitionContainer } from "../containers/definition";
 import { AutoCompleteContainer } from "../containers/autocomplete";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [word, setWord] = useState("dictionary");
-  const [correction, setCorrection] = useState(false);
+  const [extraDef, setExtraDef] = useState("");
+  // const [correction, setCorrection] = useState(false);
 
   return (
     <>
@@ -25,8 +27,12 @@ const Home = () => {
           </Search.Helpers>
         </Search.Frame>
       </Search>
-      <AutoCompleteContainer searchTerm={searchTerm} setWord={setWord} />
-      <DefinitionContainer word={word} />
+      <AutoCompleteContainer
+        searchTerm={searchTerm}
+        setExtraDef={setExtraDef}
+        setWord={setWord}
+      />
+      <DefinitionContainer word={word} extraDef={extraDef} />
     </>
   );
 };

@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { autocompleteApi } from "../utils/api";
 import { AutoComplete } from "../components";
-export function AutoCompleteContainer({ searchTerm, setWord }) {
+export function AutoCompleteContainer({ searchTerm, setExtraDef, setWord }) {
   const [matches, setMatches] = useState([]);
+  const handleWordPick = (item) => {
+    setWord(item.word);
+    setExtraDef(item.definition);
+  };
   useEffect(() => {
     // if (searchTerm && matches.length) {
     //   if (matches[0].word.startsWith(searchTerm)) {
@@ -24,7 +28,7 @@ export function AutoCompleteContainer({ searchTerm, setWord }) {
         {matches.map((item) => (
           <AutoComplete.Item
             key={item.id + item.word}
-            onClick={() => setWord(item.word)}
+            onClick={() => handleWordPick(item)}
           >
             <AutoComplete.Word>{item.word}</AutoComplete.Word>
             <AutoComplete.Definition>{item.definition}</AutoComplete.Definition>
