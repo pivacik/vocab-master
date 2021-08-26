@@ -4,7 +4,11 @@ export const Container = styled.div`
   margin: 0 auto;
   position: relative;
   font-size: 15px;
-  padding-top: 30px;
+  padding: 30px 2.5% 0;
+  @media (max-width: 760px) {
+    padding-top: 20px;
+    padding-bottom: 65px;
+  }
 `;
 
 export const Frame = styled.div`
@@ -12,6 +16,9 @@ export const Frame = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 760px) {
+    display: block;
+  }
 `;
 
 export const Word = styled.h1`
@@ -61,9 +68,15 @@ export const Label = styled.p`
 `;
 export const DefArea = styled.div`
   width: 50%;
+  @media (max-width: 760px) {
+    width: auto;
+  }
 `;
 export const ExamplesArea = styled.div`
   width: 47%;
+  @media (max-width: 760px) {
+    width: auto;
+  }
 `;
 
 export const Meanings = styled.ol`
@@ -72,7 +85,7 @@ export const Meanings = styled.ol`
 export const Item = styled.li`
   font-size: 14px;
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 `;
 
 export const PosIcon = styled.span`
@@ -92,7 +105,20 @@ export const Example = styled.p`
   margin: 10px 0 10px 50px;
 `;
 
+export const AudioButton = styled.a`
+  text-decoration: none;
+  color: #0090e3;
+  white-space: nowrap;
+  display: inline;
+  font-size: 18px;
+  padding: 0 0 0 0.75em;
+  cursor: pointer;
+  transition: all 0.3s;
+  vertical-align: middle;
+`;
+
 export const Synonym = styled.p`
-  margin-left: 6rem;
+  display: ${({ index }) => (index === 0 ? "inline-block" : "block")};
+  margin-left: ${({ index }) => (index === 0 ? "5px" : "75px")};
   color: rgb(0, 37, 159);
 `;

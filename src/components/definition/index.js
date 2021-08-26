@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  AudioButton,
   Container,
   Frame,
   Item,
@@ -75,4 +76,18 @@ Definition.Example = function DefinitionExample({ children, ...restProps }) {
 
 Definition.Synonym = function DefinitionSynonym({ children, ...restProps }) {
   return <Synonym {...restProps}>{children}</Synonym>;
+};
+
+Definition.AudioButton = function DefinitionAudioButton({
+  src,
+  children,
+  ...restProps
+}) {
+  const audio = new Audio(src);
+
+  return (
+    <AudioButton onClick={() => audio.play()} {...restProps}>
+      {children}
+    </AudioButton>
+  );
 };
