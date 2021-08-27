@@ -9,7 +9,7 @@ export const Frame = styled.div`
 `;
 export const Container = styled.div`
   margin: 0 0 0 0;
-  position: fixed;
+  position: ${({ opacity }) => (opacity ? "fixed" : "absolute")};
   top: 0;
   left: 0;
   width: 100%;
