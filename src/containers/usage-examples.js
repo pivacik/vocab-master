@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { UsageExamples } from "../components";
-import { Item } from "../components/autocomplete/styles/autocomplete";
 
 export function ExamplesContainer({ word }) {
   const [examples, setExamples] = useState([]);
@@ -28,15 +27,17 @@ export function ExamplesContainer({ word }) {
     <UsageExamples>
       <UsageExamples.Text>Usage Examples</UsageExamples.Text>
       <UsageExamples.List>
-        {examples.sentences
-          ? examples.sentences.map((sentence) => (
-              <UsageExamples.Item
-                key={sentence.offsets + sentence.volumeId}
-                source={sentence.volume.title}
-                sentence={sentence.sentence}
-              ></UsageExamples.Item>
-            ))
-          : null}
+        {examples.totalHits ? (
+          examples.sentences.map((sentence) => (
+            <UsageExamples.Item
+              key={sentence.offsets + sentence.volumeId}
+              source={sentence.volume.title}
+              sentence={sentence.sentence}
+            ></UsageExamples.Item>
+          ))
+        ) : (
+          <UsageExamples.Message>no examples found</UsageExamples.Message>
+        )}
       </UsageExamples.List>
     </UsageExamples>
   );

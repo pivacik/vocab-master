@@ -4,7 +4,7 @@ export const Container = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: ${({ matches }) => (matches ? "257px" : 0)};
+  height: ${({ visibility }) => (visibility ? "257px" : 0)};
   line-height: 3em;
   color: white;
   padding: 0;

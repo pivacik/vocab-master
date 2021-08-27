@@ -32,6 +32,13 @@ export const Sentence = styled.p`
   font-size: 0.85em;
   line-height: 175%;
 `;
+
+export const Message = styled.p`
+  text-align: center;
+  padding: 40px 0;
+  color: #bbbbbb;
+  font-style: italic;
+`;
 export const Source = styled.span`
   float: left;
   font-size: 12px;

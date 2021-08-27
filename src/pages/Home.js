@@ -10,6 +10,7 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [word, setWord] = useState("dictionary");
   const [extraDef, setExtraDef] = useState("");
+  const [visibility, setVisibility] = useState(false);
   // const [correction, setCorrection] = useState(false);
 
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         <Search.Frame>
           <Search.Text>Look up a word, learn it forever.</Search.Text>
           <Search.SearchField
+            onClick={() => setVisibility(searchTerm && true)}
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
           />
@@ -28,6 +30,8 @@ const Home = () => {
         </Search.Frame>
       </Search>
       <AutoCompleteContainer
+        visibility={visibility}
+        setVisibility={setVisibility}
         searchTerm={searchTerm}
         setExtraDef={setExtraDef}
         setWord={setWord}

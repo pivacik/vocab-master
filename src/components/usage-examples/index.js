@@ -4,6 +4,7 @@ import {
   List,
   Text,
   Item,
+  Message,
   Source,
   Sentence,
 } from "./styles/usage-examples";
@@ -17,6 +18,13 @@ UsageExamples.List = function UsageExamplesList({ children, ...restProps }) {
 };
 UsageExamples.Text = function UsageExamplesText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
+};
+
+UsageExamples.Message = function UsageExamplesMessage({
+  children,
+  ...restProps
+}) {
+  return <Message {...restProps}>{children}</Message>;
 };
 
 UsageExamples.Item = function UsageExamplesText({

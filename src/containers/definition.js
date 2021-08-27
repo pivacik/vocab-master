@@ -3,32 +3,56 @@ import axios from "axios";
 import { Definition } from "../components";
 import { ExamplesContainer } from "./usage-examples";
 import { posColor } from "../utils/switch-pos-color";
-import { ExamplesArea } from "../components/definition/styles/definition";
 
 export function DefinitionContainer({ word, extraDef }) {
   const [data, setData] = useState({
     short: "",
     long: "",
+    isLoading: false,
   });
 
-  const [details, setDetails] = useState({ phonetics: "", meanings: [] });
+  const [details, setDetails] = useState({
+    phonetic: "",
+    phonetics: "",
+    meanings: [],
+    isLoading: false,
+  });
   useEffect(() => {
     let ignore = false;
+    setData({ ...data, isLoading: true });
+    setDetails({ ...details, isLoading: true });
 
     async function fetchData() {
       const result = await axios(
         `https://vocabulary-api-pivacik.vercel.app/word/${word}`
       );
-      if (!ignore) setData(result.data);
+      if (!ignore) {
+        setData({
+          short: result.data.short,
+          long: result.data.long,
+          isLoading: false,
+        });
+      }
     }
     async function fetchDetailedData() {
       try {
         const result = await axios(
           `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
         );
-        if (!ignore) setDetails(result.data[0]);
+        if (!ignore) {
+          console.log(result.data[0]);
+          setDetails({
+            ...result.data[0],
+            isLoading: false,
+          });
+        }
       } catch (err) {
-        setDetails({ phonetics: "", meanings: [] });
+        setDetails({
+          phonetic: "",
+          phonetics: [],
+          meanings: [],
+          isLoading: false,
+        });
       }
     }
 

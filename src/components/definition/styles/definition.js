@@ -27,10 +27,14 @@ export const Word = styled.h1`
   text-transform: none;
   display: block;
   width: 100%;
+  /* overflow: hidden; */
   color: #00578a;
   font-family: Merriweather, Impact, serif;
   font-size: 38px;
   font-weight: bold;
+  word-wrap: break-word;
+  word-wrap: break-word;
+  /* white-space: pre-wrap; */
 `;
 export const Short = styled.p`
   margin: 0.5em 0 1em 0;
@@ -108,13 +112,14 @@ export const Example = styled.p`
 export const AudioButton = styled.a`
   text-decoration: none;
   color: #0090e3;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   display: inline;
   font-size: 18px;
   padding: 0 0 0 0.75em;
   cursor: pointer;
   transition: all 0.3s;
   vertical-align: middle;
+  white-space: nowrap;
 `;
 
 export const Synonym = styled.p`

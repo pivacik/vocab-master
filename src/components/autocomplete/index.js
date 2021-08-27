@@ -8,9 +8,9 @@ import {
   Definition,
 } from "./styles/autocomplete";
 
-export default function AutoComplete({ matches, children, ...restProps }) {
+export default function AutoComplete({ visibility, children, ...restProps }) {
   return (
-    <Container matches={matches} {...restProps}>
+    <Container visibility={visibility} {...restProps}>
       {children}
     </Container>
   );
